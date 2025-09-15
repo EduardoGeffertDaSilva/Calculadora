@@ -1,0 +1,351 @@
+
+import java.util.Scanner;
+
+public class Main
+{
+    static Calcular calcular = new Calcular();
+    static Adicao adicao = new Adicao();
+    static Subtracao subtracao = new Subtracao();
+    static Multiplicacao multiplicacao = new Multiplicacao();
+    static Divisao divisao = new Divisao();
+    static Elevado elevado = new Elevado();
+    static Radiaciacao radiaciacao = new Radiaciacao();
+    static Fatorial fatorial = new Fatorial();
+    static MMC mmc = new MMC();
+    static MDC mdc = new MDC();
+    static Modulo modulo = new Modulo();
+
+    static String Mostrar = "  :)";
+    static Scanner leia = new Scanner(System.in);
+
+    static double resultado = 0;
+
+    public static void main(String[] args)
+    {
+
+        System.out.println("\n\n\n\n     ===================================");
+        System.out.println("     =======     CALCULADORA     =======");
+        System.out.println("     ===================================");
+        System.out.println("\n\n\nAqui você pode realizar diversas operações matemáticas!");
+
+        inicio();
+    }
+
+    public static void inicio()
+    {
+        System.out.println("\n\nDigite:");
+        System.out.println("\n1-Realizar conta");
+        System.out.println("2-Sair");
+        int escolha = leia.nextInt();
+        leia.nextLine();
+
+        if(escolha == 1)
+        {
+            System.out.println("Digite um número: ");
+            resultado = leia.nextDouble();
+            Mostrar = ""+resultado;
+            Menu();
+        }
+        else if(escolha == 2)
+        {
+            System.out.println("Desligando . . .");
+            System.exit(0);
+        }
+        else
+        {
+            System.out.println("Valor digitado incorreto!");
+            inicio();
+        }
+    }
+
+    public static void Menu()
+    {
+
+        for(int i = 1; i <= 50; i++)
+        {
+            System.out.println("");
+        }
+
+        System.out.println("\n_________________________________________________________________________");
+        System.out.println("\n\n         -----------------------------------------");
+        System.out.println("                 " + Mostrar  );
+        System.out.println("         -----------------------------------------");
+        System.out.println("\n\nDigite");
+        System.out.println("\n1-Adicionar   [ + ]      2-Subtrair  [  -  ]     3-Dividir [  ÷  ]");
+        System.out.println("\n4-Multiplicar [ * ]      5-Elevar    [ (x)²]     6-Raiz    [  √  ]");
+        System.out.println("\n7-Fatorial    [ ! ]      8-MMC       [ x|x ]     9-MDC     [ x|y ]");
+        System.out.println("\n10-Modulo     [|x|]      11-Sair     [  x  ]     12-Limpar [ --- ]");
+        System.out.println("\n_________________________________________________________________________");
+        int escolha = leia.nextInt();
+        leia.nextLine();
+
+
+        switch (escolha)
+        {
+            case 1:
+            {
+
+                System.out.println(resultado + " + ");
+
+                System.out.println("\n\nDigite um numero: ");
+                double nume = leia.nextDouble();
+                leia.nextLine();
+
+                double resultadoantigo = resultado;
+
+                resultado = adicao.Somar(resultado,nume);
+
+                Mostrar = resultadoantigo + " + " + nume + " = "  + resultado;
+
+                Menu();
+
+                break;
+            }
+            case 2:
+            {
+                System.out.println(resultado + " - " );
+
+                System.out.println("\n\nDigite um numero: ");
+                double nume = leia.nextDouble();
+                leia.nextLine();
+
+                double resultadoantigo = resultado;
+
+                resultado = subtracao.Subtrair(resultado,nume);
+
+                Mostrar =  resultadoantigo + " - " + nume + " = "  + resultado;
+
+                Menu();
+
+                break;
+            }
+            case 3:
+            {
+                System.out.println(resultado + " / " );
+
+                System.out.println("\n\nDigite um numero: ");
+                double nume = leia.nextDouble();
+                leia.nextLine();
+
+                double resultadoantigo = resultado;
+
+                resultado = divisao.Dividir(resultado,nume);
+
+                Mostrar = resultadoantigo + " / " + nume + " = "  + resultado;
+
+                Menu();
+
+                break;
+            }
+            case 4:
+            {
+                System.out.println(resultado + " * " );
+
+                System.out.println("\n\nDigite um numero: ");
+                double nume = leia.nextDouble();
+                leia.nextLine();
+
+                double resultadoantigo = resultado;
+
+                resultado = multiplicacao.Multiplcar(resultado,nume);
+
+                Mostrar = resultadoantigo + " * " + nume + " = "  + resultado;
+
+                Menu();
+
+                break;
+            }
+            case 5:
+            {
+                System.out.println("\n\nQuer reiniciar a conta para começar uma de elevar? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
+
+                if(escolh == 1)
+                {
+                    System.out.println("Digite um numero inteiro para ser a base, o x|   x²   |: " );
+                    int num1 = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("Digite um numero inteiro para ser o expoente, o 2|   x²  |: ");
+                    int num2 = leia.nextInt();
+                    leia.nextLine();
+
+                    int resultadoElevar = elevado.Elevado(num1,num2);
+
+                    Mostrar =  num1 + " elevado a " + num2 + " = "  + resultadoElevar;
+
+                    System.out.println("O resultado é: " + resultadoElevar);
+
+                    resultado = resultadoElevar;
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+            }
+            case 6:
+            {
+                System.out.println("\n\nQuer reiniciar a conta para começar uma de raiz? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
+
+                if(escolh == 1)
+                {
+                    System.out.println("Digite um numero inteiro para ser o indice, o 2|   ²√x   |: " );
+                    int num1 = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("Digite um numero inteiro para ser o radicando, o x|   ²√x  |: ");
+                    int num2 = leia.nextInt();
+                    leia.nextLine();
+
+                    int resultadoElevar = radiaciacao.Raiz(num1, num2);
+
+                    Mostrar = "Indice: " + num1 + " radicando: + " + num2 + " = " + resultadoElevar;
+
+                    resultado = resultadoElevar;
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+                break;
+            }
+            case 7:
+            {
+                System.out.println("\n\nQuer reiniciar a conta para começar um fatorial? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
+
+                if(escolh == 1)
+                {
+                    System.out.println("Digite um numero inteiro para calcular o fatorial: " );
+                    int num1 = leia.nextInt();
+                    leia.nextLine();
+
+                    int resultadoFatorial = fatorial.Fatorial(num1);
+
+                    Mostrar = "O fatorial de " + num1 + " é " + resultadoFatorial;
+
+                    resultado = resultadoFatorial;
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+                break;
+            }
+            case 8:
+            {
+                System.out.println("\n\nQuer reiniciar a conta para começar um MMC? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
+
+                if(escolh == 1)
+                {
+                    System.out.println("Digite um numero inteiro para calcular o MMC: " );
+                    int num1 = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("Digite outro numero inteiro para calcular o MMC: " );
+                    int num2 = leia.nextInt();
+                    leia.nextLine();
+
+                    int resultadoFatorial = mmc.mmc(num1,num2);
+
+                    Mostrar = "O MMC de " + num1 + " " + num2 + " é " + resultadoFatorial;
+
+                    resultado = resultadoFatorial;
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+                break;
+            }
+            case 9:
+            {
+                System.out.println("\n\nQuer reiniciar a conta para começar um MDC? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
+
+                if(escolh == 1)
+                {
+                    System.out.println("Digite um numero inteiro para calcular o MDC: " );
+                    int num1 = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("Digite outro numero inteiro para calcular o MDC: " );
+                    int num2 = leia.nextInt();
+                    leia.nextLine();
+
+                    int resultadoFatorial = mdc.mdc(num1,num2);
+
+                    Mostrar = "O MDC de " + num1 + " " + num2 + " é " + resultadoFatorial;
+
+                    resultado = resultadoFatorial;
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+                break;
+            }
+            case 10:
+            {
+                System.out.println("\n\nQuer reiniciar a conta para começar um modulo? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
+
+                if(escolh == 1)
+                {
+                    System.out.println("Digite um numero inteiro para calcular o modulo: " );
+                    int num1 = leia.nextInt();
+                    leia.nextLine();
+
+                    int resultadoModulo = modulo.modulo(num1);
+
+                    Mostrar = "O modulo de " + num1 + " é " + resultadoModulo;
+
+                    resultado = resultadoModulo;
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+                break;
+            }
+            case 11:
+            {
+                inicio();
+                break;
+            }
+            case 12:
+            {
+                System.out.println("\n\nDigite um numero");
+                resultado = leia.nextDouble();
+                Mostrar = "" + resultado;
+                Menu();
+            }
+            default:
+            {
+                System.out.println("Valor digitado incorreto: ");
+                Menu();
+                break;
+            }
+        }
+    }
+}
