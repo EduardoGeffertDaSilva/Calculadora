@@ -19,5 +19,9 @@ Funcionalidades
 - ! **Fatorial**
 - mdc/mmc **Máximo Divisor Comum e Mínimo Múltiplo Comum**
 - % **Módulo**
+- Função de primeiro Grau
+- Função de segundo Grau
+- Trigonometria
+- Numeros Complexos
 
 ---
