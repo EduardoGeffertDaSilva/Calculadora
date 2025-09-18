@@ -15,6 +15,7 @@ public class Main
     static MDC mdc = new MDC();
     static Modulo modulo = new Modulo();
     static Equacao_1 equacao1 = new Equacao_1();
+    static Equacao_2 equacao2 = new Equacao_2();
 
     static String Mostrar = "  :)";
     static Scanner leia = new Scanner(System.in);
@@ -375,7 +376,48 @@ public class Main
             }
             case 12:
             {
+                System.out.println("\n\nQuer reiniciar a conta para começar uma conta de segundo grau? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
 
+                if(escolh == 1)
+                {
+                    System.out.println("Função de Segundo Grau!");
+                    System.out.println("\n\n       ax² + xb + c = 0");
+                    System.out.println("\n\nDigite o valor de A: ");
+                    int a = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("\nDigite o valor de B: ");
+                    int b = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("\nDigite o valor de C:");
+                    int c = leia.nextInt();
+                    leia.nextLine();
+
+                    int delta = (b * b) - 4 * a * c;
+
+                    if (delta < 0)
+                    {
+                        System.out.println("Delta negativo, as raizes não existem :(");
+                        Mostrar = "Delta = " + delta;
+                    }
+                    else
+                    {
+                        int resultadoX1 = equacao2.EquacaoX1(a,b,delta);
+                        int resultadoX2 = equacao2.EquacaoX2(a,b,delta);
+
+                        Mostrar = a + "X² + " + b + "x + " + "c = 0     x¹ = " + resultadoX1 + "  x² = " + resultadoX2;
+                    }
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+                break;
             }
             case 13:
             {
