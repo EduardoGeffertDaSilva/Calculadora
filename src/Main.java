@@ -14,6 +14,7 @@ public class Main
     static MMC mmc = new MMC();
     static MDC mdc = new MDC();
     static Modulo modulo = new Modulo();
+    static Equacao_1 equacao1 = new Equacao_1();
 
     static String Mostrar = "  :)";
     static Scanner leia = new Scanner(System.in);
@@ -71,10 +72,12 @@ public class Main
         System.out.println("                 " + Mostrar  );
         System.out.println("         -----------------------------------------");
         System.out.println("\n\nDigite");
-        System.out.println("\n1-Adicionar   [ + ]      2-Subtrair  [  -  ]     3-Dividir [  ÷  ]");
-        System.out.println("\n4-Multiplicar [ * ]      5-Elevar    [ (x)²]     6-Raiz    [  √  ]");
-        System.out.println("\n7-Fatorial    [ ! ]      8-MMC       [ x|x ]     9-MDC     [ x|y ]");
-        System.out.println("\n10-Modulo     [|x|]      11-Sair     [  x  ]     12-Limpar [ --- ]");
+        System.out.println("\n1-Adicionar     [ + ]      2-Subtrair    [  -  ]     3-Dividir [  ÷  ]");
+        System.out.println("\n4-Multiplicar   [ * ]      5-Elevar      [ (x)²]     6-Raiz    [  √  ]");
+        System.out.println("\n7-Fatorial      [ ! ]      8-MMC         [ x|x ]     9-MDC     [ x|y ]");
+        System.out.println("\n10-Modulo       [|x|]      11-1°Grau     [     ]     12-2°Grau [     ]");
+        System.out.println("\n13-Trigonometria[   ]      14-N°Complexos[     ]     15-Sair   [  x  ]");
+        System.out.println("\n                           16-Limpar [ --- ]");
         System.out.println("\n_________________________________________________________________________");
         int escolha = leia.nextInt();
         leia.nextLine();
@@ -330,10 +333,64 @@ public class Main
             }
             case 11:
             {
-                inicio();
+                System.out.println("\n\nQuer reiniciar a conta para começar uma conta de primeiro grau? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
+
+                if(escolh == 1)
+                {
+                    System.out.println("Função de Primeiro Grau!");
+                    System.out.println("\n\n       aX + b = c");
+                    System.out.println("\n\nDigite o valor de A: ");
+                    int a = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("\nDigite o valor de B: ");
+                    int b = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("\nDigite o valor de C:");
+                    int c = leia.nextInt();
+                    leia.nextLine();
+
+                    int resultadoModulo = equacao1.Equacao(a,b,c);
+
+                    if(b < 0)
+                    {
+                        Mostrar = a + "X - " + b + " = " + c + "       X = " + resultadoModulo ;
+                    }
+                    else
+                    {
+                        Mostrar = a + "X + " + b + " = " + c + "       X = " + resultadoModulo ;
+                    }
+                    resultado = resultadoModulo;
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
                 break;
             }
             case 12:
+            {
+
+            }
+            case 13:
+            {
+
+            }
+            case 14:
+            {
+
+            }
+            case 15:
+            {
+                inicio();
+                break;
+            }
+            case 16:
             {
                 System.out.println("\n\nDigite um numero");
                 resultado = leia.nextDouble();
