@@ -16,6 +16,7 @@ public class Main
     static Modulo modulo = new Modulo();
     static Equacao_1 equacao1 = new Equacao_1();
     static Equacao_2 equacao2 = new Equacao_2();
+    static Numeros_Complexos numerosComplexos = new Numeros_Complexos();
 
     static String Mostrar = "  :)";
     static Scanner leia = new Scanner(System.in);
@@ -68,21 +69,27 @@ public class Main
             System.out.println("");
         }
 
-        System.out.println("\n_________________________________________________________________________");
-        System.out.println("\n\n         -----------------------------------------");
-        System.out.println("                 " + Mostrar  );
-        System.out.println("         -----------------------------------------");
+        System.out.println("\n_____________________________________________________________________________");
+        System.out.println("\n\n           -----------------------------------------");
+        System.out.println("                   " + Mostrar  );
+        System.out.println("           -----------------------------------------");
         System.out.println("\n\nDigite");
-        System.out.println("\n1-Adicionar     [ + ]      2-Subtrair    [  -  ]     3-Dividir [  ÷  ]");
-        System.out.println("\n4-Multiplicar   [ * ]      5-Elevar      [ (x)²]     6-Raiz    [  √  ]");
-        System.out.println("\n7-Fatorial      [ ! ]      8-MMC         [ x|x ]     9-MDC     [ x|y ]");
-        System.out.println("\n10-Modulo       [|x|]      11-1°Grau     [     ]     12-2°Grau [     ]");
-        System.out.println("\n13-Trigonometria[   ]      14-N°Complexos[     ]     15-Sair   [  x  ]");
-        System.out.println("\n                           16-Limpar [ --- ]");
-        System.out.println("\n_________________________________________________________________________");
+        System.out.println("______________________________________________________________________________");
+        System.out.println("| 1-Adicionar     [  +  ]   |   2-Subtrair    [  -  ]  |   3-Dividir [  ÷  ] |");
+        System.out.println("|---------------------------|--------------------------|---------------------|");
+        System.out.println("| 4-Multiplicar   [  *  ]   |   5-Elevar      [ (x)²]  |   6-Raiz    [  √  ] |");
+        System.out.println("|---------------------------|--------------------------|---------------------|");
+        System.out.println("| 7-Fatorial      [  !  ]   |   8-MMC         [ x|x ]  |   9-MDC     [ x|y ] |");
+        System.out.println("|---------------------------|--------------------------|---------------------|");
+        System.out.println("| 10-Modulo       [ |x| ]   |   11-1°Grau     [  x  ]  |   12-2°Grau [  x² ] |");
+        System.out.println("|---------------------------|--------------------------|---------------------|");
+        System.out.println("| 13-Trigonometria[ sin ]   |   14-N°Complexos[  i  ]  |   15-Sair   [     ] |");
+        System.out.println("|---------------------------|--------------------------|---------------------|");
+        System.out.println("|   16-Limpar     [ --- ]   |                      ");
+        System.out.println("|---------------------------|                      ");
+        System.out.println("\n_____________________________________________________________________________");
         int escolha = leia.nextInt();
         leia.nextLine();
-
 
         switch (escolha)
         {
@@ -405,10 +412,10 @@ public class Main
                     }
                     else
                     {
-                        int resultadoX1 = equacao2.EquacaoX1(a,b,delta);
-                        int resultadoX2 = equacao2.EquacaoX2(a,b,delta);
+                        double resultadoX1 = equacao2.EquacaoX1(a,b,delta);
+                        double resultadoX2 = equacao2.EquacaoX2(a,b,delta);
 
-                        Mostrar = a + "X² + " + b + "x + " + "c = 0     x¹ = " + resultadoX1 + "  x² = " + resultadoX2;
+                        Mostrar = a + "X² + " + b + "x + " + c +" = 0     x¹ = " + resultadoX1 + "  x² = " + resultadoX2;
                     }
 
                     Menu();
@@ -421,11 +428,105 @@ public class Main
             }
             case 13:
             {
+                System.out.println("\n\nQuer reiniciar a conta para começar uma conta de trigonometria? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
 
+                if(escolh == 1)
+                {
+                    System.out.println("Trigonometria!\n\n");
+                    System.out.println("         /|                                ");
+                    System.out.println("        / |           a = Hipotenusa       ");
+                    System.out.println("    a  /  | b         b = cateto oposto    ");
+                    System.out.println("      /   |           c = cateto adjacente ");
+                    System.out.println("     /    |           θ = angulo           ");
+                    System.out.println("    /     |                                ");
+                    System.out.println("   /_θ    |                                ");
+                    System.out.println("  /__|____|                                ");
+                    System.out.println("       c                                   ");
+                    System.out.println("\n\n\nDigite qual valor vc quer descobrir: A = 1, B = 2, C = 3, θ = 4 ");
+                    int valor = leia.nextInt();
+
+                    switch (valor)
+                    {
+                        case 1:
+                        {
+
+                        }
+                        case 2:
+                        {
+
+                        }
+                        case 3:
+                        {
+
+                        }
+                        case 4:
+                        {
+
+                        }
+                        default:
+                        {
+                            System.out.println("valor digitado incorreto!");
+                            Menu();
+                        }
+                    }
+
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+                break;
             }
             case 14:
             {
+                System.out.println("\n\nQuer reiniciar a conta para começar uma conta +" +
+                        " para calculo do modulo dos numeros complexos? 1-sim");
+                int escolh = leia.nextInt();
+                leia.nextLine();
 
+                if(escolh == 1)
+                {
+                    System.out.println("Modulo de numeros complexos!    ( i )\n\n");
+                    System.out.println("     √ a² + b²      a = real");
+                    System.out.println("                    b = numero complexo" );
+                    System.out.println("\n\nDigite o valor de A: ");
+                    int a = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("\nDigite o valor de B: ");
+                    int b = leia.nextInt();
+                    leia.nextLine();
+
+                    double modulo = numerosComplexos.Modulo(a,b);
+
+                    if (modulo == (int) modulo)
+                    {
+                        int modu = (int)modulo;
+
+                        resultado = modu;
+
+                        Mostrar = "O modulo é " + modu;
+                    }
+                    else
+                    {
+                        System.out.println("Não tem raiz exata!");
+
+                        resultado = modulo;
+
+                        Mostrar = "Não tem raiz exata! Modulo = " + modulo;
+                    }
+
+                    Menu();
+                }
+                else
+                {
+                    Menu();
+                }
+                break;
             }
             case 15:
             {

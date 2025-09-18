@@ -1,20 +1,20 @@
-public class Equacao_2
+public class Equacao_2 extends Calcular
 {
-    public int EquacaoX1(int a , int b, int delta)
+    public double EquacaoX1(int a , int b, int delta)
     {
 
-        int x1 ;
+        double x1 ;
 
-        x1 = (-b + delta) / (2 * a);
+        x1 = (-b + Math.sqrt(delta)) / (2 * a);
 
         return x1;
     }
 
-    public int EquacaoX2(int a , int b, int delta)
+    public double EquacaoX2(int a , int b, int delta)
     {
-        int x1 ;
+        double x1 ;
 
-        x1 = (-b - delta) / (2 * a);
+        x1 = (-b - Math.sqrt(delta)) / (2 * a);
 
         return x1;
     }
