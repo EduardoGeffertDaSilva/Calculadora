@@ -1,2 +1,7 @@
-public class Trigonometria {
+public class Trigonometria extends Calcular
+{
+
+
+
+
 }
