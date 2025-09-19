@@ -17,6 +17,7 @@ public class Main
     static Equacao_1 equacao1 = new Equacao_1();
     static Equacao_2 equacao2 = new Equacao_2();
     static Numeros_Complexos numerosComplexos = new Numeros_Complexos();
+    static Trigonometria trigonometria = new Trigonometria();
 
     static String Mostrar = "  :)";
     static Scanner leia = new Scanner(System.in);
@@ -444,34 +445,70 @@ public class Main
                     System.out.println("   /_θ    |                                ");
                     System.out.println("  /__|____|                                ");
                     System.out.println("       c                                   ");
-                    System.out.println("\n\n\nDigite qual valor vc quer descobrir: A = 1, B = 2, C = 3, θ = 4 ");
+                    System.out.println("Digite o valor do angulo: ");
+                    int angulo = leia.nextInt();
+                    leia.nextLine();
+
+                    System.out.println("\nDigite qual valor vc quer descobrir: 1-Seno 2-Cos 3-Tangente ");
                     int valor = leia.nextInt();
 
                     switch (valor)
                     {
                         case 1:
                         {
+                            System.out.println("Digite o valor do cateto oposto: ");
+                            double co = leia.nextInt();
+                            leia.nextLine();
 
+                            System.out.println("Digite o valor da hipotenusa: ");
+                            double hp = leia.nextInt();
+                            leia.nextLine();
+
+                            double seno = trigonometria.Seno(co,hp);
+
+                            resultado = seno;
+                            Mostrar = "O Seno de " + angulo + " é " + seno;
+                            break;
                         }
                         case 2:
                         {
 
+                            System.out.println("Digite o valor do cateto adjacente: ");
+                            double ca = leia.nextInt();
+                            leia.nextLine();
+
+                            System.out.println("Digite o valor da hipotenusa: ");
+                            double hp = leia.nextInt();
+                            leia.nextLine();
+
+                            double cosseno = trigonometria.Cosseno(ca,hp);
+
+                            resultado = cosseno;
+                            Mostrar = "O Cosseno de " + angulo + " é " + cosseno;
+                            break;
                         }
                         case 3:
                         {
+                            System.out.println("Digite o valor do cateto oposto: ");
+                            double co = leia.nextInt();
+                            leia.nextLine();
 
-                        }
-                        case 4:
-                        {
+                            System.out.println("Digite o valor do cateto adjacente: ");
+                            double ca = leia.nextInt();
+                            leia.nextLine();
 
+                            double tangente = trigonometria.Tangente(co,ca);
+
+                            resultado = tangente;
+                            Mostrar = "A tangente de " + angulo + " é " + tangente;
+                            break;
                         }
                         default:
                         {
-                            System.out.println("valor digitado incorreto!");
+                            System.out.println("Valor digitado incorreto!");
                             Menu();
                         }
                     }
-
 
                     Menu();
                 }
